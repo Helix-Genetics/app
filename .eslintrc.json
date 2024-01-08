@@ -1,3 +1,45 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2021
+  },
+  "plugins": ["@typescript-eslint/eslint-plugin"],
+  "ignorePatterns": [".eslintrc.json"],
+  "env": {
+    "node": true,
+    "jest": true
+  },
+  "rules": {
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/ban-types": "off",
+    // custom
+    "@typescript-eslint/ban-ts-comment": "error",
+    "no-else-return": "warn",
+    "consistent-return": "error",
+    "prefer-const": "error",
+    "complexity": ["warn", 12],
+    "max-len": [
+      2,
+      180,
+      4,
+      {
+        "ignoreUrls": true,
+
+        "ignorePattern": "^import [^,]+ from"
+      }
+    ],
+    "semi": ["warn", "never"],
+    "object-curly-spacing": ["warn", "always"],
+    "no-unused-vars": ["error", { "vars": "local" }],
+    "quotes": ["error", "single", { "avoidEscape": true,"allowTemplateLiterals": true }],
+    "sort-imports": "error"
+  }
 }
+
+
+
